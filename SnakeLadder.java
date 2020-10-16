@@ -7,7 +7,7 @@ public class SnakeLadder {
 	        int dieNumber,option;
 	        int newPosition=0;
 	        int previousPosition = 0;
-	        
+	        Checkingwinner check=new Checkingwinner();
 	        while(newPosition!=100){
 	            position = (int) ((Math.random() * 6) + 1);
 	            option=(int)((Math.random()*3)+1);
@@ -20,13 +20,14 @@ public class SnakeLadder {
 	                    if(newPosition>100){
 	                        newPosition=previousPosition;
 	                    }
+	                    check.checkForWin(newPosition);
 	                    
 	                    break;
 	                case 2:
 	                    //sneke bite
 	                    if (previousPosition>newPosition){
 	                        newPosition=newPosition-position;
-	                        
+	                        check.checkForWin(newPosition);
 	                    }
 	                    break;
 	                default:
